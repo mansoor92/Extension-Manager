@@ -86,10 +86,11 @@ class PluginParser {
     
     static func parse(string: String) -> [Extension] {
         
-        let items = string.components(separatedBy: "\n").dropFirst().dropLast()
+        let items = string.components(separatedBy: "\n").dropLast()
         
         var extensionList = [Extension]()
         var extensionItem = Extension()
+        extensionItem.type = "App Extension"
         var newItem = true
         
         for item in items {

@@ -122,15 +122,20 @@ class ExtensionStore {
         
         task.standardOutput = pipe
         task.standardError = pipe
+//        task.arguments = ["-c", command]
         task.arguments = ["-c", command]
         task.executableURL = URL(fileURLWithPath: "/bin/zsh") //<--updated
+//        task.executableURL = URL(fileURLWithPath: "/bin/bash") //<--updated
+//        task.executableURL = URL(fileURLWithPath: "/usr/bin/env") //<--updated
         task.standardInput = nil
 
         try task.run() //<--updated
+//        task.launch()
+        
         
         let data = pipe.fileHandleForReading.readDataToEndOfFile()
         let output = String(data: data, encoding: .utf8)!
-        
+    
         return output
     }
 }
